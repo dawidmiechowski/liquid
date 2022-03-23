@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Different time zones</title>
+        <h1>Different time zones</h1>
+
+        <input id="toggleVisibilityButton" type="button" value="Print all time zones"/>
+<table  id="displaytable" style="display:none" width="100%" cellpadding="1" cellspacing="0" border="3">
+    <tr align="center">
+            <td class="Local">Zone</td>
+            <td class="lbl">Time</td>
+            </tr>
+            <tr>
+                <td align="center">Local</td>
+                <td align="center">{{ "now"  | to_time: "Europe/Oslo" }}</td>
+            </tr>
+            <tr>
+                <td align="center">Chicago</td>
+                <td align="center">{{ "now"  | to_time: "America/Chicago" }}</td>
+            </tr>
+            <tr>
+                <td align="center">Sydney</td>
+                <td align="center">{{ "now"  | to_time: "Sydney" }}</td>   
+            </tr>
+            <tr>
+                <td align="center">Tokyo</td>
+                <td align="center">{{ "now"  | to_time: "Tokyo" }}</td>
+            </tr>
+            <tr>
+                <td align="center">Singapore</td>
+                <td align="center">{{ "now"  | to_time: "Singapore" }}</td>
+            </tr>
+            <tr>
+                <td align="center">Mumbai</td>
+                <td align="center">{{ "now"  | to_time: "Mumbai" }}</td>
+            </tr>
+            <tr>
+                <td align="center">Moscow</td>
+                <td align="center">{{ "now"  | to_time: "Moscow" }}</td>
+            </tr>
+            <tr>
+                <td align="center">Auckland</td>
+                <td align="center">{{ "now"  | to_time: "Auckland" }}</td>
+            </tr>
+            
+</table> 
+        <script type="text/javascript">
+            function printSelectedItem() {
+                var e = document.getElementById("zones");
+                var selectedItem = e.options[e.selectedIndex].value;
+                alert(selectedItem);
+            }
+
+            
+            document.getElementById("toggleVisibilityButton").addEventListener("click", function(button) {    
+            if (document.getElementById("displaytable").style.display === "none") document.getElementById("displaytable").style.display = "block";
+            else document.getElementById("displaytable").style.display = "none";});
+        </script>
+    </head>
+    <body style="text-align: center;">
+        <big>Select time zone:</big>
+        <select id="zones" onchange="printSelectedItem()">
+            <option value="{{ "now"  | to_time: "Europe/Oslo" }}">Local</option>
+            <option value="{{ "now"  | to_time: "America/Chicago" }}">Chicago</option>
+            <option value="{{ "now"  | to_time: "Sydney" }}">Sydney</option>
+            <option value="{{ "now"  | to_time: "Tokyo" }}">Tokyo</option>
+            <option value="{{ "now"  | to_time: "Singapore" }}">Singapore</option>
+            <option value="{{ "now"  | to_time: "Mumbai" }}">Mumbai</option>
+            <option value="{{ "now"  | to_time: "Moscow" }}">Moscow</option>
+            <option value="{{ "now"  | to_time: "Auckland" }}">Auckland</option>
+
+        </select>
+
+
+    </body>
+</html> 
